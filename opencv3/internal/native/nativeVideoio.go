@@ -42,9 +42,11 @@ extern void Java_org_opencv_videoio_VideoWriter_write_10(JNIEnv*, jclass, jlong,
 import "C"
 
 func VideoCaptureNative_VideoCapture_0(filename string, apiPreference int) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_videoio_VideoCapture_VideoCapture_10(clzEnv, clzObj, tojstring(filename), (C.jint)(apiPreference)))
 }
 func VideoCaptureNative_VideoCapture_1(filename string) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_videoio_VideoCapture_VideoCapture_11(clzEnv, clzObj, tojstring(filename)))
 }
 func VideoCaptureNative_VideoCapture_2(index int) int64 {
@@ -72,10 +74,12 @@ func VideoCaptureNative_isOpened_0(nativeObj int64) bool {
 }
 
 func VideoCaptureNative_open_0(nativeObj int64, filename string, apiPreference int) bool {
+	defer ungointerface(filename)
 	return togobool(C.Java_org_opencv_videoio_VideoCapture_open_10(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename), (C.jint)(apiPreference)))
 }
 
 func VideoCaptureNative_open_1(nativeObj int64, filename string) bool {
+	defer ungointerface(filename)
 	return togobool(C.Java_org_opencv_videoio_VideoCapture_open_11(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename)))
 }
 
@@ -108,18 +112,22 @@ func VideoCaptureNative_set_0(nativeObj int64, propId int, value float64) bool {
 }
 
 func VideoWriterNative_VideoWriter_0(filename string, apiPreference int, fourcc int, fps float64, frameSize_width float64, frameSize_height float64, isColor bool) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_videoio_VideoWriter_VideoWriter_10(clzEnv, clzObj, tojstring(filename), (C.jint)(apiPreference), (C.jint)(fourcc), (C.jdouble)(fps), (C.jdouble)(frameSize_width), (C.jdouble)(frameSize_height), tojboolean(isColor)))
 }
 
 func VideoWriterNative_VideoWriter_1(filename string, apiPreference int, fourcc int, fps float64, frameSize_width float64, frameSize_height float64) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_videoio_VideoWriter_VideoWriter_11(clzEnv, clzObj, tojstring(filename), (C.jint)(apiPreference), (C.jint)(fourcc), (C.jdouble)(fps), (C.jdouble)(frameSize_width), (C.jdouble)(frameSize_height)))
 }
 
 func VideoWriterNative_VideoWriter_2(filename string, fourcc int, fps float64, frameSize_width float64, frameSize_height float64, isColor bool) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_videoio_VideoWriter_VideoWriter_12(clzEnv, clzObj, tojstring(filename), (C.jint)(fourcc), (C.jdouble)(fps), (C.jdouble)(frameSize_width), (C.jdouble)(frameSize_height), tojboolean(isColor)))
 }
 
 func VideoWriterNative_VideoWriter_3(filename string, fourcc int, fps float64, frameSize_width float64, frameSize_height float64) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_videoio_VideoWriter_VideoWriter_13(clzEnv, clzObj, tojstring(filename), (C.jint)(fourcc), (C.jdouble)(fps), (C.jdouble)(frameSize_width), (C.jdouble)(frameSize_height)))
 }
 
@@ -145,18 +153,22 @@ func VideoWriterNative_isOpened_0(nativeObj int64) bool {
 }
 
 func VideoWriterNative_open_0(nativeObj int64, filename string, apiPreference int, fourcc int, fps float64, frameSize_width float64, frameSize_height float64, isColor bool) bool {
+	defer ungointerface(filename)
 	return togobool(C.Java_org_opencv_videoio_VideoWriter_open_10(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename), (C.jint)(apiPreference), (C.jint)(fourcc), (C.jdouble)(fps), (C.jdouble)(frameSize_width), (C.jdouble)(frameSize_height), tojboolean(isColor)))
 }
 
 func VideoWriterNative_open_1(nativeObj int64, filename string, apiPreference int, fourcc int, fps float64, frameSize_width float64, frameSize_height float64) bool {
+	defer ungointerface(filename)
 	return togobool(C.Java_org_opencv_videoio_VideoWriter_open_11(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename), (C.jint)(apiPreference), (C.jint)(fourcc), (C.jdouble)(fps), (C.jdouble)(frameSize_width), (C.jdouble)(frameSize_height)))
 }
 
 func VideoWriterNative_open_2(nativeObj int64, filename string, fourcc int, fps float64, frameSize_width float64, frameSize_height float64, isColor bool) bool {
+	defer ungointerface(filename)
 	return togobool(C.Java_org_opencv_videoio_VideoWriter_open_12(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename), (C.jint)(fourcc), (C.jdouble)(fps), (C.jdouble)(frameSize_width), (C.jdouble)(frameSize_height), tojboolean(isColor)))
 }
 
 func VideoWriterNative_open_3(nativeObj int64, filename string, fourcc int, fps float64, frameSize_width float64, frameSize_height float64) bool {
+	defer ungointerface(filename)
 	return togobool(C.Java_org_opencv_videoio_VideoWriter_open_13(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename), (C.jint)(fourcc), (C.jdouble)(fps), (C.jdouble)(frameSize_width), (C.jdouble)(frameSize_height)))
 }
 

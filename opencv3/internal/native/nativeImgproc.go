@@ -532,8 +532,9 @@ func ImgprocNative_circle_2(img_nativeObj int64, center_x float64, center_y floa
 }
 
 func ImgprocNative_clipLine_0(imgRect_x int, imgRect_y int, imgRect_width int, imgRect_height int, pt1_x float64, pt1_y float64, pt1_out []float64, pt2_x float64, pt2_y float64, pt2_out []float64) bool {
-	return togobool(C.Java_org_opencv_imgproc_Imgproc_clipLine_10(clzEnv, clzObj, (C.jint)(imgRect_x), (C.jint)(
-		imgRect_y), (C.jint)(imgRect_width), (C.jint)(imgRect_height), (C.jdouble)(pt1_x), (C.jdouble)(pt1_y), tojdoubleArray(pt1_out), (C.jdouble)(pt2_x), (C.jdouble)(pt2_y), tojdoubleArray(pt2_out)))
+	defer ungointerface(pt1_out)
+	defer ungointerface(pt2_out)
+	return togobool(C.Java_org_opencv_imgproc_Imgproc_clipLine_10(clzEnv, clzObj, (C.jint)(imgRect_x), (C.jint)(imgRect_y), (C.jint)(imgRect_width), (C.jint)(imgRect_height), (C.jdouble)(pt1_x), (C.jdouble)(pt1_y), tojdoubleArray(pt1_out), (C.jdouble)(pt2_x), (C.jdouble)(pt2_y), tojdoubleArray(pt2_out)))
 }
 
 func ImgprocNative_compareHist_0(H1_nativeObj int64, H2_nativeObj int64, method int) float64 {
@@ -810,6 +811,7 @@ func ImgprocNative_fitLine_0(points_nativeObj int64, line_nativeObj int64, distT
 }
 
 func ImgprocNative_floodFill_0(image_nativeObj int64, mask_nativeObj int64, seedPoint_x float64, seedPoint_y float64, newVal_val0 float64, newVal_val1 float64, newVal_val2 float64, newVal_val3 float64, rect_out []float64, loDiff_val0 float64, loDiff_val1 float64, loDiff_val2 float64, loDiff_val3 float64, upDiff_val0 float64, upDiff_val1 float64, upDiff_val2 float64, upDiff_val3 float64, flags int) int {
+	defer ungointerface(rect_out)
 	return int(C.Java_org_opencv_imgproc_Imgproc_floodFill_10(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(mask_nativeObj), (C.jdouble)(seedPoint_x), (C.jdouble)(seedPoint_y), (C.jdouble)(newVal_val0), (C.jdouble)(newVal_val1), (C.jdouble)(newVal_val2), (C.jdouble)(newVal_val3), tojdoubleArray(rect_out), (C.jdouble)(loDiff_val0), (C.jdouble)(loDiff_val1), (C.jdouble)(loDiff_val2), (C.jdouble)(loDiff_val3), (C.jdouble)(upDiff_val0), (C.jdouble)(upDiff_val1), (C.jdouble)(upDiff_val2), (C.jdouble)(upDiff_val3), (C.jint)(flags)))
 }
 
@@ -886,8 +888,7 @@ func ImgprocNative_goodFeaturesToTrack_1(image_nativeObj int64, corners_mat_nati
 }
 
 func ImgprocNative_goodFeaturesToTrack_2(image_nativeObj int64, corners_mat_nativeObj int64, maxCorners int, qualityLevel float64, minDistance float64, mask_nativeObj int64, blockSize int, useHarrisDetector bool, k float64) {
-	C.Java_org_opencv_imgproc_Imgproc_goodFeaturesToTrack_12(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(corners_mat_nativeObj), (C.jint)(maxCorners), (C.jdouble)(qualityLevel), (C.jdouble)(minDistance), (C.jlong)(mask_nativeObj), (C.jint)(blockSize), tojboolean(
-		useHarrisDetector), (C.jdouble)(k))
+	C.Java_org_opencv_imgproc_Imgproc_goodFeaturesToTrack_12(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(corners_mat_nativeObj), (C.jint)(maxCorners), (C.jdouble)(qualityLevel), (C.jdouble)(minDistance), (C.jlong)(mask_nativeObj), (C.jint)(blockSize), tojboolean(useHarrisDetector), (C.jdouble)(k))
 }
 
 func ImgprocNative_goodFeaturesToTrack_3(image_nativeObj int64, corners_mat_nativeObj int64, maxCorners int, qualityLevel float64, minDistance float64) {
@@ -995,6 +996,8 @@ func ImgprocNative_minAreaRect_0(points_mat_nativeObj int64) []float64 {
 }
 
 func ImgprocNative_minEnclosingCircle_0(points_mat_nativeObj int64, center_out []float64, radius_out []float64) {
+	defer ungointerface(center_out)
+	defer ungointerface(radius_out)
 	C.Java_org_opencv_imgproc_Imgproc_minEnclosingCircle_10(clzEnv, clzObj, (C.jlong)(points_mat_nativeObj), tojdoubleArray(center_out), tojdoubleArray(radius_out))
 }
 
@@ -1023,10 +1026,12 @@ func ImgprocNative_morphologyEx_2(src_nativeObj int64, dst_nativeObj int64, op i
 }
 
 func ImgprocNative_n_getTextSize(text string, fontFace int, fontScale float64, thickness int, baseLine []int32) []float64 {
+	defer ungointerface(baseLine)
 	return togofloat64Array(C.Java_org_opencv_imgproc_Imgproc_n_1getTextSize(clzEnv, clzObj, tojstring(text), (C.jint)(fontFace), (C.jdouble)(fontScale), (C.jint)(thickness), tojintArray(baseLine)))
 }
 
 func ImgprocNative_phaseCorrelate_0(src1_nativeObj int64, src2_nativeObj int64, window_nativeObj int64, response_out []float64) []float64 {
+	defer ungointerface(response_out)
 	return togofloat64Array(C.Java_org_opencv_imgproc_Imgproc_phaseCorrelate_10(clzEnv, clzObj, (C.jlong)(src1_nativeObj), (C.jlong)(src2_nativeObj), (C.jlong)(window_nativeObj), tojdoubleArray(response_out)))
 }
 
@@ -1059,14 +1064,17 @@ func ImgprocNative_preCornerDetect_1(src_nativeObj int64, dst_nativeObj int64, k
 }
 
 func ImgprocNative_putText_0(img_nativeObj int64, text string, org_x float64, org_y float64, fontFace int, fontScale float64, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64, thickness int, lineType int, bottomLeftOrigin bool) {
+	defer ungointerface(text)
 	C.Java_org_opencv_imgproc_Imgproc_putText_10(clzEnv, clzObj, (C.jlong)(img_nativeObj), tojstring(text), (C.jdouble)(org_x), (C.jdouble)(org_y), (C.jint)(fontFace), (C.jdouble)(fontScale), (C.jdouble)(color_val0), (C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3), (C.jint)(thickness), (C.jint)(lineType), tojboolean(bottomLeftOrigin))
 }
 
 func ImgprocNative_putText_1(img_nativeObj int64, text string, org_x float64, org_y float64, fontFace int, fontScale float64, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64, thickness int) {
+	defer ungointerface(text)
 	C.Java_org_opencv_imgproc_Imgproc_putText_11(clzEnv, clzObj, (C.jlong)(img_nativeObj), tojstring(text), (C.jdouble)(org_x), (C.jdouble)(org_y), (C.jint)(fontFace), (C.jdouble)(fontScale), (C.jdouble)(color_val0), (C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3), (C.jint)(thickness))
 }
 
 func ImgprocNative_putText_2(img_nativeObj int64, text string, org_x float64, org_y float64, fontFace int, fontScale float64, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64) {
+	defer ungointerface(text)
 	C.Java_org_opencv_imgproc_Imgproc_putText_12(clzEnv, clzObj, (C.jlong)(img_nativeObj), tojstring(text), (C.jdouble)(org_x), (C.jdouble)(org_y), (C.jint)(fontFace), (C.jdouble)(fontScale), (C.jdouble)(color_val0), (C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3))
 }
 
@@ -1123,8 +1131,7 @@ func ImgprocNative_remap_1(src_nativeObj int64, dst_nativeObj int64, map1_native
 }
 
 func ImgprocNative_resize_0(src_nativeObj int64, dst_nativeObj int64, dsize_width float64, dsize_height float64, fx float64, fy float64, interpolation int) {
-	C.Java_org_opencv_imgproc_Imgproc_resize_10(clzEnv, clzObj, (C.jlong)(src_nativeObj), (C.jlong)(dst_nativeObj), (C.jdouble)(dsize_width), (C.jdouble)(dsize_height), (C.jdouble)(fx), (C.jdouble)(fy), (C.jint)(
-		interpolation))
+	C.Java_org_opencv_imgproc_Imgproc_resize_10(clzEnv, clzObj, (C.jlong)(src_nativeObj), (C.jlong)(dst_nativeObj), (C.jdouble)(dsize_width), (C.jdouble)(dsize_height), (C.jdouble)(fx), (C.jdouble)(fy), (C.jint)(interpolation))
 }
 
 func ImgprocNative_resize_1(src_nativeObj int64, dst_nativeObj int64, dsize_width float64, dsize_height float64) {
@@ -1161,8 +1168,7 @@ func ImgprocNative_spatialGradient_2(src_nativeObj int64, dx_nativeObj int64, dy
 }
 
 func ImgprocNative_sqrBoxFilter_0(_src_nativeObj int64, _dst_nativeObj int64, ddepth int, ksize_width float64, ksize_height float64, anchor_x float64, anchor_y float64, normalize bool, borderType int) {
-	C.Java_org_opencv_imgproc_Imgproc_sqrBoxFilter_10(clzEnv, clzObj, (C.jlong)(_src_nativeObj), (C.jlong)(_dst_nativeObj), (C.jint)(ddepth), (C.jdouble)(ksize_width), (C.jdouble)(ksize_height), (C.jdouble)(anchor_x), (C.jdouble)(anchor_y), tojboolean(normalize), (C.jint)(
-		borderType))
+	C.Java_org_opencv_imgproc_Imgproc_sqrBoxFilter_10(clzEnv, clzObj, (C.jlong)(_src_nativeObj), (C.jlong)(_dst_nativeObj), (C.jint)(ddepth), (C.jdouble)(ksize_width), (C.jdouble)(ksize_height), (C.jdouble)(anchor_x), (C.jdouble)(anchor_y), tojboolean(normalize), (C.jint)(borderType))
 }
 
 func ImgprocNative_sqrBoxFilter_1(_src_nativeObj int64, _dst_nativeObj int64, ddepth int, ksize_width float64, ksize_height float64, anchor_x float64, anchor_y float64, normalize bool) {
@@ -1174,8 +1180,7 @@ func ImgprocNative_sqrBoxFilter_2(_src_nativeObj int64, _dst_nativeObj int64, dd
 }
 
 func ImgprocNative_threshold_0(src_nativeObj int64, dst_nativeObj int64, thresh float64, maxval float64, rtype int) float64 {
-	return float64(C.Java_org_opencv_imgproc_Imgproc_threshold_10(clzEnv, clzObj, (C.jlong)(src_nativeObj), (C.jlong)(dst_nativeObj), (C.jdouble)(thresh), (C.jdouble)(
-		maxval), (C.jint)(rtype)))
+	return float64(C.Java_org_opencv_imgproc_Imgproc_threshold_10(clzEnv, clzObj, (C.jlong)(src_nativeObj), (C.jlong)(dst_nativeObj), (C.jdouble)(thresh), (C.jdouble)(maxval), (C.jint)(rtype)))
 }
 
 func ImgprocNative_undistortPointsIter_0(src_nativeObj int64, dst_nativeObj int64, cameraMatrix_nativeObj int64, distCoeffs_nativeObj int64, R_nativeObj int64, P_nativeObj int64, criteria_type int, criteria_maxCount int, criteria_epsilon float64) {
@@ -1263,6 +1268,7 @@ func Subdiv2DNative_delete(nativeObj int64) {
 }
 
 func Subdiv2DNative_edgeDst_0(nativeObj int64, edge int, dstpt_out []float64) int {
+	defer ungointerface(dstpt_out)
 	return int(C.Java_org_opencv_imgproc_Subdiv2D_edgeDst_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jint)(edge), tojdoubleArray(dstpt_out)))
 }
 
@@ -1271,6 +1277,7 @@ func Subdiv2DNative_edgeDst_1(nativeObj int64, edge int) int {
 }
 
 func Subdiv2DNative_edgeOrg_0(nativeObj int64, edge int, orgpt_out []float64) int {
+	defer ungointerface(orgpt_out)
 	return int(C.Java_org_opencv_imgproc_Subdiv2D_edgeOrg_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jint)(edge), tojdoubleArray(orgpt_out)))
 }
 
@@ -1279,6 +1286,7 @@ func Subdiv2DNative_edgeOrg_1(nativeObj int64, edge int) int {
 }
 
 func Subdiv2DNative_findNearest_0(nativeObj int64, pt_x float64, pt_y float64, nearestPt_out []float64) int {
+	defer ungointerface(nearestPt_out)
 	return int(C.Java_org_opencv_imgproc_Subdiv2D_findNearest_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jdouble)(pt_x), (C.jdouble)(pt_y), tojdoubleArray(nearestPt_out)))
 }
 
@@ -1303,6 +1311,7 @@ func Subdiv2DNative_getTriangleList_0(nativeObj int64, triangleList_mat_nativeOb
 }
 
 func Subdiv2DNative_getVertex_0(nativeObj int64, vertex int, firstEdge_out []float64) []float64 {
+	defer ungointerface(firstEdge_out)
 	return togofloat64Array(C.Java_org_opencv_imgproc_Subdiv2D_getVertex_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jint)(vertex), tojdoubleArray(firstEdge_out)))
 }
 
@@ -1327,6 +1336,8 @@ func Subdiv2DNative_insert_1(nativeObj int64, ptvec_mat_nativeObj int64) {
 }
 
 func Subdiv2DNative_locate_0(nativeObj int64, pt_x float64, pt_y float64, edge_out []float64, vertex_out []float64) int {
+	defer ungointerface(edge_out)
+	defer ungointerface(vertex_out)
 	return int(C.Java_org_opencv_imgproc_Subdiv2D_locate_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jdouble)(pt_x), (C.jdouble)(pt_y), tojdoubleArray(edge_out), tojdoubleArray(vertex_out)))
 }
 

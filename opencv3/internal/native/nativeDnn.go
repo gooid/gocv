@@ -88,6 +88,7 @@ extern void Java_org_opencv_dnn_Net_setPreferableTarget_10(JNIEnv*, jclass, jlon
 import "C"
 
 func DictValueNative_DictValue_0(s string) int64 {
+	defer ungointerface(s)
 	return int64(C.Java_org_opencv_dnn_DictValue_DictValue_10(clzEnv,clzObj,tojstring(s)))
 }
 func DictValueNative_DictValue_1(p float64) int64 {
@@ -156,68 +157,88 @@ func DnnNative_blobFromImages_1(images_mat_nativeObj int64) int64 {
 }
 
 func DnnNative_createCaffeImporter_0(prototxt string,caffeModel string) int64 {
+	defer ungointerface(prototxt)
+	defer ungointerface(caffeModel)
 	return int64(C.Java_org_opencv_dnn_Dnn_createCaffeImporter_10(clzEnv,clzObj,tojstring(prototxt),tojstring(caffeModel)))
 }
 
 func DnnNative_createCaffeImporter_1(prototxt string) int64 {
+	defer ungointerface(prototxt)
 	return int64(C.Java_org_opencv_dnn_Dnn_createCaffeImporter_11(clzEnv,clzObj,tojstring(prototxt)))
 }
 
 func DnnNative_createTensorflowImporter_0(model string) int64 {
+	defer ungointerface(model)
 	return int64(C.Java_org_opencv_dnn_Dnn_createTensorflowImporter_10(clzEnv,clzObj,tojstring(model)))
 }
 
 func DnnNative_createTorchImporter_0(filename string,isBinary bool) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_dnn_Dnn_createTorchImporter_10(clzEnv,clzObj,tojstring(filename),tojboolean(isBinary)))
 }
 
 func DnnNative_createTorchImporter_1(filename string) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_dnn_Dnn_createTorchImporter_11(clzEnv,clzObj,tojstring(filename)))
 }
 
 func DnnNative_readNetFromCaffe_0(prototxt string,caffeModel string) int64 {
+	defer ungointerface(prototxt)
+	defer ungointerface(caffeModel)
 	return int64(C.Java_org_opencv_dnn_Dnn_readNetFromCaffe_10(clzEnv,clzObj,tojstring(prototxt),tojstring(caffeModel)))
 }
 
 func DnnNative_readNetFromCaffe_1(prototxt string) int64 {
+	defer ungointerface(prototxt)
 	return int64(C.Java_org_opencv_dnn_Dnn_readNetFromCaffe_11(clzEnv,clzObj,tojstring(prototxt)))
 }
 
 func DnnNative_readNetFromDarknet_0(cfgFile string,darknetModel string) int64 {
+	defer ungointerface(cfgFile)
+	defer ungointerface(darknetModel)
 	return int64(C.Java_org_opencv_dnn_Dnn_readNetFromDarknet_10(clzEnv,clzObj,tojstring(cfgFile),tojstring(darknetModel)))
 }
 
 func DnnNative_readNetFromDarknet_1(cfgFile string) int64 {
+	defer ungointerface(cfgFile)
 	return int64(C.Java_org_opencv_dnn_Dnn_readNetFromDarknet_11(clzEnv,clzObj,tojstring(cfgFile)))
 }
 
 func DnnNative_readNetFromTensorflow_0(model string,config string) int64 {
+	defer ungointerface(model)
+	defer ungointerface(config)
 	return int64(C.Java_org_opencv_dnn_Dnn_readNetFromTensorflow_10(clzEnv,clzObj,tojstring(model),tojstring(config)))
 }
 
 func DnnNative_readNetFromTensorflow_1(model string) int64 {
+	defer ungointerface(model)
 	return int64(C.Java_org_opencv_dnn_Dnn_readNetFromTensorflow_11(clzEnv,clzObj,tojstring(model)))
 }
 
 func DnnNative_readNetFromTorch_0(model string,isBinary bool) int64 {
+	defer ungointerface(model)
 	return int64(C.Java_org_opencv_dnn_Dnn_readNetFromTorch_10(clzEnv,clzObj,tojstring(model),tojboolean(isBinary)))
 }
 
 func DnnNative_readNetFromTorch_1(model string) int64 {
+	defer ungointerface(model)
 	return int64(C.Java_org_opencv_dnn_Dnn_readNetFromTorch_11(clzEnv,clzObj,tojstring(model)))
 }
 
 func DnnNative_readTorchBlob_0(filename string,isBinary bool) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_dnn_Dnn_readTorchBlob_10(clzEnv,clzObj,tojstring(filename),tojboolean(isBinary)))
 }
 
 func DnnNative_readTorchBlob_1(filename string) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_dnn_Dnn_readTorchBlob_11(clzEnv,clzObj,tojstring(filename)))
 }
 
 func DnnNative_shrinkCaffeModel_0(src string,dst string) {
-	C.Java_org_opencv_dnn_Dnn_shrinkCaffeModel_10(clzEnv,clzObj,tojstring(
-		src),tojstring(dst))
+	defer ungointerface(src)
+	defer ungointerface(dst)
+	C.Java_org_opencv_dnn_Dnn_shrinkCaffeModel_10(clzEnv,clzObj,tojstring(src),tojstring(dst))
 }
 
 func ImporterNative_delete(nativeObj int64) {
@@ -276,6 +297,8 @@ func NetNative_Net_0() int64 {
 }
 
 func NetNative_connect_0(nativeObj int64,outPin string,inpPin string) {
+	defer ungointerface(outPin)
+	defer ungointerface(inpPin)
 	C.Java_org_opencv_dnn_Net_connect_10(clzEnv,clzObj,(C.jlong)(nativeObj),tojstring(outPin),tojstring(inpPin))
 }
 
@@ -296,6 +319,7 @@ func NetNative_enableFusion_0(nativeObj int64,fusion bool) {
 }
 
 func NetNative_forward_0(nativeObj int64,outputName string) int64 {
+	defer ungointerface(outputName)
 	return int64(C.Java_org_opencv_dnn_Net_forward_10(clzEnv,clzObj,(C.jlong)(nativeObj),tojstring(outputName)))
 }
 
@@ -304,6 +328,7 @@ func NetNative_forward_1(nativeObj int64) int64 {
 }
 
 func NetNative_forward_2(nativeObj int64,outputBlobs_mat_nativeObj int64,outputName string) {
+	defer ungointerface(outputName)
 	C.Java_org_opencv_dnn_Net_forward_12(clzEnv,clzObj,(C.jlong)(nativeObj),(C.jlong)(outputBlobs_mat_nativeObj),tojstring(outputName))
 }
 
@@ -332,6 +357,7 @@ func NetNative_getFLOPS_3(nativeObj int64,netInputShapes int64) int64 {
 }
 
 func NetNative_getLayerId_0(nativeObj int64,layer string) int {
+	defer ungointerface(layer)
 	return int(C.Java_org_opencv_dnn_Net_getLayerId_10(clzEnv,clzObj,(C.jlong)(nativeObj),tojstring(layer)))
 }
 
@@ -348,20 +374,26 @@ func NetNative_getLayer_0(nativeObj int64,layerId_nativeObj int64) int64 {
 }
 
 func NetNative_getLayersCount_0(nativeObj int64,layerType string) int {
+	defer ungointerface(layerType)
 	return int(C.Java_org_opencv_dnn_Net_getLayersCount_10(clzEnv,clzObj,(C.jlong)(nativeObj),tojstring(layerType)))
 }
 
 func NetNative_getMemoryConsumption_0(nativeObj int64,netInputShape_mat_nativeObj int64,weights_out []float64,blobs_out []float64) {
+	defer ungointerface(weights_out)
+	defer ungointerface(blobs_out)
 	C.Java_org_opencv_dnn_Net_getMemoryConsumption_10(clzEnv,clzObj,(C.jlong)(nativeObj),(C.jlong)(netInputShape_mat_nativeObj),tojdoubleArray(weights_out),tojdoubleArray(blobs_out))
 }
 
 func NetNative_getMemoryConsumption_1(nativeObj int64,layerId int,netInputShape_mat_nativeObj int64,weights_out []float64,blobs_out []float64) {
+	defer ungointerface(weights_out)
+	defer ungointerface(blobs_out)
 	C.Java_org_opencv_dnn_Net_getMemoryConsumption_11(clzEnv,clzObj,(C.jlong)(nativeObj),(C.jint)(layerId),(C.jlong)(netInputShape_mat_nativeObj),tojdoubleArray(weights_out),tojdoubleArray(blobs_out))
 }
 
 func NetNative_getMemoryConsumption_2(nativeObj int64,layerId int,netInputShapes int64,weights_out []float64,blobs_out []float64) {
-	C.Java_org_opencv_dnn_Net_getMemoryConsumption_12(clzEnv,clzObj,(C.jlong)(nativeObj),(C.jint)(layerId),(C.jlong)(netInputShapes),tojdoubleArray(weights_out),tojdoubleArray(
-		blobs_out))
+	defer ungointerface(weights_out)
+	defer ungointerface(blobs_out)
+	C.Java_org_opencv_dnn_Net_getMemoryConsumption_12(clzEnv,clzObj,(C.jlong)(nativeObj),(C.jint)(layerId),(C.jlong)(netInputShapes),tojdoubleArray(weights_out),tojdoubleArray(blobs_out))
 }
 
 func NetNative_getParam_0(nativeObj int64,layer_nativeObj int64,numParam int) int64 {
@@ -381,10 +413,12 @@ func NetNative_getUnconnectedOutLayers_0(nativeObj int64) int64 {
 }
 
 func NetNative_setHalideScheduler_0(nativeObj int64,scheduler string) {
+	defer ungointerface(scheduler)
 	C.Java_org_opencv_dnn_Net_setHalideScheduler_10(clzEnv,clzObj,(C.jlong)(nativeObj),tojstring(scheduler))
 }
 
 func NetNative_setInput_0(nativeObj int64,blob_nativeObj int64,name string) {
+	defer ungointerface(name)
 	C.Java_org_opencv_dnn_Net_setInput_10(clzEnv,clzObj,(C.jlong)(nativeObj),(C.jlong)(blob_nativeObj),tojstring(name))
 }
 

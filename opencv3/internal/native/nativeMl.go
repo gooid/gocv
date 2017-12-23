@@ -301,6 +301,7 @@ func ANN_MLPNative_getWeights_0(nativeObj int64,layerIdx int) int64 {
 }
 
 func ANN_MLPNative_load_0(filepath string) int64 {
+	defer ungointerface(filepath)
 	return int64(C.Java_org_opencv_ml_ANN_1MLP_load_10(clzEnv,clzObj,tojstring(filepath)))
 }
 
@@ -377,10 +378,13 @@ func BoostNative_getWeightTrimRate_0(nativeObj int64) float64 {
 }
 
 func BoostNative_load_0(filepath string,nodeName string) int64 {
+	defer ungointerface(filepath)
+	defer ungointerface(nodeName)
 	return int64(C.Java_org_opencv_ml_Boost_load_10(clzEnv,clzObj,tojstring(filepath),tojstring(nodeName)))
 }
 
 func BoostNative_load_1(filepath string) int64 {
+	defer ungointerface(filepath)
 	return int64(C.Java_org_opencv_ml_Boost_load_11(clzEnv,clzObj,tojstring(filepath)))
 }
 
@@ -442,10 +446,13 @@ func DTreesNative_getUseSurrogates_0(nativeObj int64) bool {
 }
 
 func DTreesNative_load_0(filepath string,nodeName string) int64 {
+	defer ungointerface(filepath)
+	defer ungointerface(nodeName)
 	return int64(C.Java_org_opencv_ml_DTrees_load_10(clzEnv,clzObj,tojstring(filepath),tojstring(nodeName)))
 }
 
 func DTreesNative_load_1(filepath string) int64 {
+	defer ungointerface(filepath)
 	return int64(C.Java_org_opencv_ml_DTrees_load_11(clzEnv,clzObj,tojstring(filepath)))
 }
 
@@ -518,10 +525,13 @@ func EMNative_getWeights_0(nativeObj int64) int64 {
 }
 
 func EMNative_load_0(filepath string,nodeName string) int64 {
+	defer ungointerface(filepath)
+	defer ungointerface(nodeName)
 	return int64(C.Java_org_opencv_ml_EM_load_10(clzEnv,clzObj,tojstring(filepath),tojstring(nodeName)))
 }
 
 func EMNative_load_1(filepath string) int64 {
+	defer ungointerface(filepath)
 	return int64(C.Java_org_opencv_ml_EM_load_11(clzEnv,clzObj,tojstring(filepath)))
 }
 
@@ -659,10 +669,13 @@ func LogisticRegressionNative_get_learnt_thetas_0(nativeObj int64) int64 {
 }
 
 func LogisticRegressionNative_load_0(filepath string,nodeName string) int64 {
+	defer ungointerface(filepath)
+	defer ungointerface(nodeName)
 	return int64(C.Java_org_opencv_ml_LogisticRegression_load_10(clzEnv,clzObj,tojstring(filepath),tojstring(nodeName)))
 }
 
 func LogisticRegressionNative_load_1(filepath string) int64 {
+	defer ungointerface(filepath)
 	return int64(C.Java_org_opencv_ml_LogisticRegression_load_11(clzEnv,clzObj,tojstring(filepath)))
 }
 
@@ -697,8 +710,7 @@ func LogisticRegressionNative_setTermCriteria_0(nativeObj int64,val_type int,val
 }
 
 func LogisticRegressionNative_setTrainMethod_0(nativeObj int64,val int) {
-	C.Java_org_opencv_ml_LogisticRegression_setTrainMethod_10(clzEnv,clzObj,(C.jlong)(nativeObj),(C.jint)(
-			val))
+	C.Java_org_opencv_ml_LogisticRegression_setTrainMethod_10(clzEnv,clzObj,(C.jlong)(nativeObj),(C.jint)(val))
 }
 
 func NormalBayesClassifierNative_create_0() int64 {
@@ -710,10 +722,13 @@ func NormalBayesClassifierNative_delete(nativeObj int64) {
 }
 
 func NormalBayesClassifierNative_load_0(filepath string,nodeName string) int64 {
+	defer ungointerface(filepath)
+	defer ungointerface(nodeName)
 	return int64(C.Java_org_opencv_ml_NormalBayesClassifier_load_10(clzEnv,clzObj,tojstring(filepath),tojstring(nodeName)))
 }
 
 func NormalBayesClassifierNative_load_1(filepath string) int64 {
+	defer ungointerface(filepath)
 	return int64(C.Java_org_opencv_ml_NormalBayesClassifier_load_11(clzEnv,clzObj,tojstring(filepath)))
 }
 
@@ -790,10 +805,13 @@ func RTreesNative_getVotes_0(nativeObj int64,samples_nativeObj int64,results_nat
 }
 
 func RTreesNative_load_0(filepath string,nodeName string) int64 {
+	defer ungointerface(filepath)
+	defer ungointerface(nodeName)
 	return int64(C.Java_org_opencv_ml_RTrees_load_10(clzEnv,clzObj,tojstring(filepath),tojstring(nodeName)))
 }
 
 func RTreesNative_load_1(filepath string) int64 {
+	defer ungointerface(filepath)
 	return int64(C.Java_org_opencv_ml_RTrees_load_11(clzEnv,clzObj,tojstring(filepath)))
 }
 
@@ -876,6 +894,7 @@ func SVMNative_getUncompressedSupportVectors_0(nativeObj int64) int64 {
 }
 
 func SVMNative_load_0(filepath string) int64 {
+	defer ungointerface(filepath)
 	return int64(C.Java_org_opencv_ml_SVM_load_10(clzEnv,clzObj,tojstring(filepath)))
 }
 
@@ -971,10 +990,13 @@ func SVMSGDNative_getWeights_0(nativeObj int64) int64 {
 }
 
 func SVMSGDNative_load_0(filepath string,nodeName string) int64 {
+	defer ungointerface(filepath)
+	defer ungointerface(nodeName)
 	return int64(C.Java_org_opencv_ml_SVMSGD_load_10(clzEnv,clzObj,tojstring(filepath),tojstring(nodeName)))
 }
 
 func SVMSGDNative_load_1(filepath string) int64 {
+	defer ungointerface(filepath)
 	return int64(C.Java_org_opencv_ml_SVMSGD_load_11(clzEnv,clzObj,tojstring(filepath)))
 }
 

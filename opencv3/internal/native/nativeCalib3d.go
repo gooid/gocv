@@ -204,6 +204,11 @@ func Calib3dNative_calibrate_2(objectPoints_mat_nativeObj int64,imagePoints_mat_
 }
 
 func Calib3dNative_calibrationMatrixValues_0(cameraMatrix_nativeObj int64,imageSize_width float64,imageSize_height float64,apertureWidth float64,apertureHeight float64,fovx_out []float64,fovy_out []float64,focalLength_out []float64,principalPoint_out []float64,aspectRatio_out []float64) {
+	defer ungointerface(fovx_out)
+	defer ungointerface(fovy_out)
+	defer ungointerface(focalLength_out)
+	defer ungointerface(principalPoint_out)
+	defer ungointerface(aspectRatio_out)
 	C.Java_org_opencv_calib3d_Calib3d_calibrationMatrixValues_10(clzEnv,clzObj,(C.jlong)(cameraMatrix_nativeObj),(C.jdouble)(imageSize_width),(C.jdouble)(imageSize_height),(C.jdouble)(apertureWidth),(C.jdouble)(apertureHeight),tojdoubleArray(fovx_out),tojdoubleArray(fovy_out),tojdoubleArray(focalLength_out),tojdoubleArray(principalPoint_out),tojdoubleArray(aspectRatio_out))
 }
 
@@ -364,6 +369,7 @@ func Calib3dNative_findHomography_2(srcPoints_mat_nativeObj int64,dstPoints_mat_
 }
 
 func Calib3dNative_getOptimalNewCameraMatrix_0(cameraMatrix_nativeObj int64,distCoeffs_nativeObj int64,imageSize_width float64,imageSize_height float64,alpha float64,newImgSize_width float64,newImgSize_height float64,validPixROI_out []float64,centerPrincipalPoint bool) int64 {
+	defer ungointerface(validPixROI_out)
 	return int64(C.Java_org_opencv_calib3d_Calib3d_getOptimalNewCameraMatrix_10(clzEnv,clzObj,(C.jlong)(cameraMatrix_nativeObj),(C.jlong)(distCoeffs_nativeObj),(C.jdouble)(imageSize_width),(C.jdouble)(imageSize_height),(C.jdouble)(alpha),(C.jdouble)(newImgSize_width),(C.jdouble)(newImgSize_height),tojdoubleArray(validPixROI_out),tojboolean(centerPrincipalPoint)))
 }
 
@@ -436,6 +442,8 @@ func Calib3dNative_recoverPose_6(E_nativeObj int64,points1_nativeObj int64,point
 }
 
 func Calib3dNative_rectify3Collinear_0(cameraMatrix1_nativeObj int64,distCoeffs1_nativeObj int64,cameraMatrix2_nativeObj int64,distCoeffs2_nativeObj int64,cameraMatrix3_nativeObj int64,distCoeffs3_nativeObj int64,imgpt1_mat_nativeObj int64,imgpt3_mat_nativeObj int64,imageSize_width float64,imageSize_height float64,R12_nativeObj int64,T12_nativeObj int64,R13_nativeObj int64,T13_nativeObj int64,R1_nativeObj int64,R2_nativeObj int64,R3_nativeObj int64,P1_nativeObj int64,P2_nativeObj int64,P3_nativeObj int64,Q_nativeObj int64,alpha float64,newImgSize_width float64,newImgSize_height float64,roi1_out []float64,roi2_out []float64,flags int) float32 {
+	defer ungointerface(roi1_out)
+	defer ungointerface(roi2_out)
 	return float32(C.Java_org_opencv_calib3d_Calib3d_rectify3Collinear_10(clzEnv,clzObj,(C.jlong)(cameraMatrix1_nativeObj),(C.jlong)(distCoeffs1_nativeObj),(C.jlong)(cameraMatrix2_nativeObj),(C.jlong)(distCoeffs2_nativeObj),(C.jlong)(cameraMatrix3_nativeObj),(C.jlong)(distCoeffs3_nativeObj),(C.jlong)(imgpt1_mat_nativeObj),(C.jlong)(imgpt3_mat_nativeObj),(C.jdouble)(imageSize_width),(C.jdouble)(imageSize_height),(C.jlong)(R12_nativeObj),(C.jlong)(T12_nativeObj),(C.jlong)(R13_nativeObj),(C.jlong)(T13_nativeObj),(C.jlong)(R1_nativeObj),(C.jlong)(R2_nativeObj),(C.jlong)(R3_nativeObj),(C.jlong)(P1_nativeObj),(C.jlong)(P2_nativeObj),(C.jlong)(P3_nativeObj),(C.jlong)(Q_nativeObj),(C.jdouble)(alpha),(C.jdouble)(newImgSize_width),(C.jdouble)(newImgSize_height),tojdoubleArray(roi1_out),tojdoubleArray(roi2_out),(C.jint)(flags)))
 }
 
@@ -510,6 +518,8 @@ func Calib3dNative_stereoRectifyUncalibrated_1(points1_nativeObj int64,points2_n
 }
 
 func Calib3dNative_stereoRectify_0(cameraMatrix1_nativeObj int64,distCoeffs1_nativeObj int64,cameraMatrix2_nativeObj int64,distCoeffs2_nativeObj int64,imageSize_width float64,imageSize_height float64,R_nativeObj int64,T_nativeObj int64,R1_nativeObj int64,R2_nativeObj int64,P1_nativeObj int64,P2_nativeObj int64,Q_nativeObj int64,flags int,alpha float64,newImageSize_width float64,newImageSize_height float64,validPixROI1_out []float64,validPixROI2_out []float64) {
+	defer ungointerface(validPixROI1_out)
+	defer ungointerface(validPixROI2_out)
 	C.Java_org_opencv_calib3d_Calib3d_stereoRectify_10(clzEnv,clzObj,(C.jlong)(cameraMatrix1_nativeObj),(C.jlong)(distCoeffs1_nativeObj),(C.jlong)(cameraMatrix2_nativeObj),(C.jlong)(distCoeffs2_nativeObj),(C.jdouble)(imageSize_width),(C.jdouble)(imageSize_height),(C.jlong)(R_nativeObj),(C.jlong)(T_nativeObj),(C.jlong)(R1_nativeObj),(C.jlong)(R2_nativeObj),(C.jlong)(P1_nativeObj),(C.jlong)(P2_nativeObj),(C.jlong)(Q_nativeObj),(C.jint)(flags),(C.jdouble)(alpha),(C.jdouble)(newImageSize_width),(C.jdouble)(newImageSize_height),tojdoubleArray(validPixROI1_out),tojdoubleArray(validPixROI2_out))
 }
 

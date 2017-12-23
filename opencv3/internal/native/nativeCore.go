@@ -282,42 +282,52 @@ func MatNative_nGet(self int64, row int, col int) []float64 {
 }
 
 func MatNative_nGetB(self int64, row int, col int, count int, vals []byte) int {
+	defer ungointerface(vals)
 	return int(C.Java_org_opencv_core_Mat_nGetB(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojbyteArray(vals)))
 }
 
 func MatNative_nGetD(self int64, row int, col int, count int, vals []float64) int {
+	defer ungointerface(vals)
 	return int(C.Java_org_opencv_core_Mat_nGetD(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojdoubleArray(vals)))
 }
 
 func MatNative_nGetF(self int64, row int, col int, count int, vals []float32) int {
+	defer ungointerface(vals)
 	return int(C.Java_org_opencv_core_Mat_nGetF(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojfloatArray(vals)))
 }
 
 func MatNative_nGetI(self int64, row int, col int, count int, vals []int32) int {
+	defer ungointerface(vals)
 	return int(C.Java_org_opencv_core_Mat_nGetI(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojintArray(vals)))
 }
 
 func MatNative_nGetS(self int64, row int, col int, count int, vals []int16) int {
+	defer ungointerface(vals)
 	return int(C.Java_org_opencv_core_Mat_nGetS(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojshortArray(vals)))
 }
 
 func MatNative_nPutB(self int64, row int, col int, count int, data []byte) int {
+	defer ungointerface(data)
 	return int(C.Java_org_opencv_core_Mat_nPutB(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojbyteArray(data)))
 }
 
 func MatNative_nPutD(self int64, row int, col int, count int, data []float64) int {
+	defer ungointerface(data)
 	return int(C.Java_org_opencv_core_Mat_nPutD(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojdoubleArray(data)))
 }
 
 func MatNative_nPutF(self int64, row int, col int, count int, data []float32) int {
+	defer ungointerface(data)
 	return int(C.Java_org_opencv_core_Mat_nPutF(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojfloatArray(data)))
 }
 
 func MatNative_nPutI(self int64, row int, col int, count int, data []int32) int {
+	defer ungointerface(data)
 	return int(C.Java_org_opencv_core_Mat_nPutI(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojintArray(data)))
 }
 
 func MatNative_nPutS(self int64, row int, col int, count int, data []int16) int {
+	defer ungointerface(data)
 	return int(C.Java_org_opencv_core_Mat_nPutS(clzEnv, clzObj, (C.jlong)(self), (C.jint)(row), (C.jint)(col), (C.jint)(count), tojshortArray(data)))
 }
 
@@ -1294,6 +1304,7 @@ func AlgorithmNative_getDefaultName_0(nativeObj int64) string {
 }
 
 func AlgorithmNative_save_0(nativeObj int64, filename string) {
+	defer ungointerface(filename)
 	C.Java_org_opencv_core_Algorithm_save_10(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename))
 }
 

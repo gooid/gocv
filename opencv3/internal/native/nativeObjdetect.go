@@ -80,6 +80,7 @@ func HOGDescriptorNative_HOGDescriptor_1(_winSize_width float64, _winSize_height
 }
 
 func HOGDescriptorNative_HOGDescriptor_2(filename string) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_objdetect_HOGDescriptor_HOGDescriptor_12(clzEnv, clzObj, tojstring(filename)))
 }
 
@@ -204,18 +205,24 @@ func HOGDescriptorNative_get_winSize_0(nativeObj int64) []float64 {
 }
 
 func HOGDescriptorNative_load_0(nativeObj int64, filename string, objname string) bool {
+	defer ungointerface(filename)
+	defer ungointerface(objname)
 	return togobool(C.Java_org_opencv_objdetect_HOGDescriptor_load_10(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename), tojstring(objname)))
 }
 
 func HOGDescriptorNative_load_1(nativeObj int64, filename string) bool {
+	defer ungointerface(filename)
 	return togobool(C.Java_org_opencv_objdetect_HOGDescriptor_load_11(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename)))
 }
 
 func HOGDescriptorNative_save_0(nativeObj int64, filename string, objname string) {
+	defer ungointerface(filename)
+	defer ungointerface(objname)
 	C.Java_org_opencv_objdetect_HOGDescriptor_save_10(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename), tojstring(objname))
 }
 
 func HOGDescriptorNative_save_1(nativeObj int64, filename string) {
+	defer ungointerface(filename)
 	C.Java_org_opencv_objdetect_HOGDescriptor_save_11(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename))
 }
 
@@ -224,6 +231,7 @@ func HOGDescriptorNative_setSVMDetector_0(nativeObj int64, _svmdetector_nativeOb
 }
 
 func CascadeClassifierNative_CascadeClassifier_0(filename string) int64 {
+	defer ungointerface(filename)
 	return int64(C.Java_org_opencv_objdetect_CascadeClassifier_CascadeClassifier_10(clzEnv, clzObj, tojstring(filename)))
 }
 
@@ -232,6 +240,8 @@ func CascadeClassifierNative_CascadeClassifier_1() int64 {
 }
 
 func CascadeClassifierNative_convert_0(oldcascade string, newcascade string) bool {
+	defer ungointerface(oldcascade)
+	defer ungointerface(newcascade)
 	return togobool(C.Java_org_opencv_objdetect_CascadeClassifier_convert_10(clzEnv, clzObj, tojstring(oldcascade), tojstring(newcascade)))
 }
 
@@ -282,6 +292,7 @@ func CascadeClassifierNative_isOldFormatCascade_0(nativeObj int64) bool {
 }
 
 func CascadeClassifierNative_load_0(nativeObj int64, filename string) bool {
+	defer ungointerface(filename)
 	return togobool(C.Java_org_opencv_objdetect_CascadeClassifier_load_10(clzEnv, clzObj, (C.jlong)(nativeObj), tojstring(filename)))
 }
 
