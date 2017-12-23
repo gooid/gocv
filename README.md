@@ -1,22 +1,54 @@
-### Go bindings for OpenCV 3.3.1 ###
+# Go bindings for OpenCV 3.3.1 （full functions, easy to use）
 
-以 opencv-331.jar 为基础转换过来的（除highgui外），utils中的内容放到了core里。
-需用到opencv对应SDK中for java的jni库.
-比如在windows,amd64下运行需要用到 opencv-3.3.1-vc14.exe 解出来的 build/java/x64/opencv_java331.dll，
-在android下运行需opencv-3.3.1-android-sdk.zip中的OpenCV-android-sdk\sdk\native\libs下对应arch的libopencv_java3.so 。
+是以 **opencv-331.jar** 为基础转换过来的（除highgui外），所以是个全功能的opencv版本，并且模块划分及接口都是原汁原味的。
 
-有例子在:
+## 安装（使用）Installation
+需用到 opencv SDK中的jni库。
+
+ platform  | runtime library  |
+---------|----------|
+windows,amd64|opencv-3.3.1-vc14.exe/opencv/build/java/x64/opencv_java331.dll
+android|opencv-3.3.1-android-sdk.zip/sdk/native/libs/{arch}/libopencv_java3.so
+
+
+有例子在(sample):
 ```
-    cmd/facedetect
-    cmd/inception
+    opencv3/cmd/facedetect
+    opencv3/cmd/inception
 ```
 
-关于Converters要特别说明一下，在原始opencv-331.jar中Converters是在utils目录下的，现在把它移到了core中。并且对它的函数名进行了重命名，基本规则是：
+## 关于Converters的特别说明：
+在原始opencv-331.jar中Converters是在utils目录下的，现在把它移到了core中。并且对它的函数名进行了重命名，基本规则是：
 
 java | go | 
 ---------|----------|
  vector_Point_to_Mat | ConvertersVectorPoint | 
  Mat_to_vector_Point | ConvertersToVectorPoint |
 
+还有就是ConvertersToVectorPoint对cols限制为1，但在使用中发现经常会得到rows为1但要用ConvertersToVector*转换的情况，所以顺手改了一下，现在兼容rows为1的情况，不再需要先把mat转90度了。
 
-如果你想试试opencv的功能，欢迎您使用它，所需要的一些图片和资源可以在opencv的sdk中找到。
+## 已知问题
+#### 文件名和路径不能有非ASCII码（opencv的问题，用opencv-331.jar一样有问题）
+#### 有几个函数没有实现（不解释，你看了对应的opencv JNI函数就会知道）：
+* func (rcvr *TrainData) GetNames(names []*Mat)
+* func (rcvr *Net) Forward5(outputBlobs []*Mat, outBlobNames []*Mat)
+* func (rcvr *Net) GetFLOPS3(layerId int, netInputShapes []*Mat) (int64)
+* func (rcvr *Net) GetFLOPS4(netInputShapes []*Mat) (int64)
+* func (rcvr *Net) GetLayerNames() ([]*Mat) 
+* func (rcvr *Net) GetLayerTypes(layersTypes []*Mat) 
+* func (rcvr *Net) GetMemoryConsumption3(layerId int, netInputShapes []*Mat, weights []int64, blobs []int64) 
+* func (rcvr *Net) SetInputsNames(inputBlobNames []*Mat)
+
+## 其它
+如果您想试试opencv的功能，欢迎您使用它。我也是想在android下跑opencv，但又不想用java。找了一圈，也没合适我用的，才决定自己动手。
+
+所需要的一些图片和资源可以在opencv的sdk中找到。
+
+## License
+
+MIT
+
+## Author
+
+gooid
+
