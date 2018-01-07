@@ -66,8 +66,9 @@ java | go |
 还有就是ConvertersToVectorPoint对cols限制为1，但在使用中发现经常会得到rows为1但要用ConvertersToVector*转换的情况，所以顺手改了一下，现在兼容rows为1的情况，不再需要先把mat转90度了。
 
 ## 已知问题
-#### 文件名和路径不能有非ASCII码（opencv的问题，用opencv-331.jar一样有问题）
-#### 有几个函数没有实现（看了对应的opencv JNI函数就会知道原因了）：
+**在windows下文件名和路径不能有非ASCII码（opencv的问题，用opencv-331.jar一样有问题）**
+
+**有几个函数没有实现（看了对应的opencv JNI函数就会知道原因了）：**
 * func (rcvr *TrainData) GetNames(names []*Mat)
 * func (rcvr *Net) Forward5(outputBlobs []*Mat, outBlobNames []*Mat)
 * func (rcvr *Net) GetFLOPS3(layerId int, netInputShapes []*Mat) (int64)
