@@ -89,7 +89,7 @@ func defaultJNIEnv() *C.JNIEnv {
 //export FindClass
 func FindClass(env *C.JNIEnv, name C.cstr) C.jclass {
 	//fmt.Printf("FindClass(%v, %v)\n", env, C.GoString(name))
-	return nil
+	return C.jclass(uintptr(0))
 }
 
 //export ThrowNew
@@ -106,14 +106,14 @@ func NewDoubleArray(env *C.JNIEnv, size C.jsize) C.jdoubleArray {
 
 //export SetDoubleArrayRegion
 func SetDoubleArrayRegion(env *C.JNIEnv, array C.jdoubleArray, start C.jsize, size C.jsize, buf C.cpjdouble) {
-	arr := togointerface(array, false).([]float64)
+	arr := togointerface(C.jobject(array), false).([]float64)
 	b := (*[1 << 26]float64)(unsafe.Pointer(buf))[:size]
 	copy(arr[start:start+size], b)
 }
 
 //export SetIntArrayRegion
 func SetIntArrayRegion(env *C.JNIEnv, array C.jintArray, start C.jsize, size C.jsize, buf C.cpjint) {
-	arr := togointerface(array, false).([]int32)
+	arr := togointerface(C.jobject(array), false).([]int32)
 	b := (*[1 << 27]int32)(unsafe.Pointer(buf))[:size]
 	copy(arr[start:start+size], b)
 }
@@ -136,7 +136,7 @@ func NewStringUTF(env *C.JNIEnv, utf C.cstr) C.jstring {
 
 //export GetStringUTFChars
 func GetStringUTFChars(env *C.JNIEnv, str C.jstring, isCopy *C.jboolean) C.cstr {
-	gstr := togointerface(str, false).(string)
+	gstr := togointerface(C.jobject(str), false).(string)
 	return C.CString(gstr)
 }
 
@@ -149,7 +149,7 @@ func ReleaseStringUTFChars(env *C.JNIEnv, str C.jstring, chars C.cstr) {
 var keepLives = map[C.jobject]interface{}{}
 
 func getPrimitiveArrayCritical(env *C.JNIEnv, array C.jarray, isCopy *C.jboolean) unsafe.Pointer {
-	if obj, ok := keepLives[array]; ok {
+	if obj, ok := keepLives[C.jobject(array)]; ok {
 		switch o := obj.(type) {
 		case []byte:
 			return unsafe.Pointer(&o[0])
@@ -180,19 +180,20 @@ func togointerface(i C.jobject, release bool) interface{} {
 	panic(fmt.Errorf("togointerface"))
 }
 func togostring(i C.jstring) string {
-	return togointerface(i, true).(string)
+	return togointerface(C.jobject(i), true).(string)
 }
-func togointArray(i C.jobject) []int32 {
-	return togointerface(i, true).([]int32)
+func togointArray(i C.jintArray) []int32 {
+	return togointerface(C.jobject(i), true).([]int32)
 }
-func togofloat64Array(i C.jobject) []float64 {
-	return togointerface(i, true).([]float64)
+func togofloat64Array(i C.jdoubleArray) []float64 {
+	return togointerface(C.jobject(i), true).([]float64)
 }
 
 // convert to jobject
 func tojobject(i interface{}) C.jobject {
 	return C.jobject(unsafe.Pointer(^reflect.ValueOf(i).Pointer()))
 }
+
 // release keepLive
 func ungointerface(i interface{}) {
 	if s, ok := i.(string); ok {
@@ -204,32 +205,17 @@ func ungointerface(i interface{}) {
 func tojstring(i string) C.jstring {
 	jobj := tojobject([]byte(i))
 	keepLives[jobj] = i
+	return C.jstring(jobj)
+}
+
+func tokeepLivesjobject(i interface{}) C.jobject {
+	jobj := tojobject(i)
+	keepLives[jobj] = i
 	return jobj
 }
 
-func tojbyteArray(i []byte) C.jobject {
-	jobj := tojobject(i)
-	keepLives[jobj] = i
-	return jobj
-}
-
-func tojintArray(i []int32) C.jobject {
-	jobj := tojobject(i)
-	keepLives[jobj] = i
-	return jobj
-}
-func tojshortArray(i []int16) C.jobject {
-	jobj := tojobject(i)
-	keepLives[jobj] = i
-	return jobj
-}
-func tojfloatArray(i []float32) C.jobject {
-	jobj := tojobject(i)
-	keepLives[jobj] = i
-	return jobj
-}
-func tojdoubleArray(i []float64) C.jobject {
-	jobj := tojobject(i)
-	keepLives[jobj] = i
-	return jobj
-}
+func tojbyteArray(i []byte) C.jbyteArray        { return C.jbyteArray(tokeepLivesjobject(i)) }
+func tojintArray(i []int32) C.jintArray         { return C.jintArray(tokeepLivesjobject(i)) }
+func tojshortArray(i []int16) C.jshortArray     { return C.jshortArray(tokeepLivesjobject(i)) }
+func tojfloatArray(i []float32) C.jfloatArray   { return C.jfloatArray(tokeepLivesjobject(i)) }
+func tojdoubleArray(i []float64) C.jdoubleArray { return C.jdoubleArray(tokeepLivesjobject(i)) }
