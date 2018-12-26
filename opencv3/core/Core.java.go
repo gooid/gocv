@@ -995,3 +995,11 @@ func Vconcat(src []*Mat, dst *Mat) {
 	CoreNative_vconcat_0(src_mat.nativeObj, dst.nativeObj)
 	return
 }
+
+func LoadCv() error {
+	return Load()
+}
+
+func LoadCvLib(path string) error {
+	return LoadLib(path)
+}

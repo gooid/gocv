@@ -28,7 +28,7 @@ extern jstring NewStringUTF(JNIEnv *env, const char *utf);
 extern const char* GetStringUTFChars(JNIEnv *env, jstring str, jboolean *isCopy);
 extern void ReleaseStringUTFChars(JNIEnv *env, jstring str, const char* chars);
 static void * GetPrimitiveArrayCritical(JNIEnv *env, jarray array, jboolean *isCopy) {
-	return (void *)(~((jlong)(iGetPrimitiveArrayCritical(env, array, isCopy))));
+	return (void *)(~((size_t)(iGetPrimitiveArrayCritical(env, array, isCopy))));
 }
 
 static JavaVM gccJVM;
@@ -61,11 +61,11 @@ static JNIEnv* setEnv() {
 	env->ReleaseStringUTFChars = ReleaseStringUTFChars;
 
 	struct JNIInvokeInterface_ *jvm = (struct JNIInvokeInterface_ *)malloc(sizeof(struct JNIInvokeInterface_));
-	jvm->DestroyJavaVM = DestroyJavaVM;
-	jvm->AttachCurrentThread = AttachCurrentThread;
-	jvm->DetachCurrentThread = DetachCurrentThread;
+	jvm->DestroyJavaVM = (void*)DestroyJavaVM;
+	jvm->AttachCurrentThread = (void*)AttachCurrentThread;
+	jvm->DetachCurrentThread = (void*)DetachCurrentThread;
 	jvm->GetEnv = GetEnv;
-	jvm->AttachCurrentThreadAsDaemon = AttachCurrentThreadAsDaemon;
+	jvm->AttachCurrentThreadAsDaemon = (void*)AttachCurrentThreadAsDaemon;
 
 	gccJVM = (JavaVM)jvm;
 	gccEnv = (JNIEnv)env;
@@ -77,7 +77,13 @@ static JNIEnv* setEnv() {
 import "C"
 
 func init() {
-	clzEnv = C.setEnv()
+	Load()
+}
+
+func Init() {
+	if clzEnv == nil {
+		clzEnv = C.setEnv()
+	}
 }
 
 var clzEnv *C.JNIEnv

@@ -17,6 +17,12 @@ import (
 )
 
 func main() {
+	err := core.LoadCv()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
 	_ = calib3d.CALIB_USE_INTRINSIC_GUESS
 	_ = core.CoreCMP_LE
 	_ = dnn.DNN_BACKEND_DEFAULT
