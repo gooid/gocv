@@ -70,13 +70,13 @@ func ObjdetectNative_groupRectangles_1(rectList_mat_nativeObj int64, weights_mat
 }
 
 func HOGDescriptorNative_HOGDescriptor_0(_winSize_width float64, _winSize_height float64, _blockSize_width float64, _blockSize_height float64, _blockStride_width float64, _blockStride_height float64, _cellSize_width float64, _cellSize_height float64, _nbins int, _derivAperture int, _winSigma float64, _histogramNormType int, _L2HysThreshold float64, _gammaCorrection bool, _nlevels int, _signedGradient bool) int64 {
-	return int64(C.Java_org_opencv_objdetect_HOGDescriptor_HOGDescriptor_10(clzEnv, clzObj, (C.jdouble)(_winSize_width), (C.jdouble)(_winSize_height), (C.jdouble)(
-		_blockSize_width), (C.jdouble)(_blockSize_height), (C.jdouble)(_blockStride_width), (C.jdouble)(_blockStride_height), (C.jdouble)(_cellSize_width), (C.jdouble)(_cellSize_height), (C.jint)(_nbins), (C.jint)(_derivAperture), (C.jdouble)(_winSigma), (C.jint)(_histogramNormType), (C.jdouble)(_L2HysThreshold), tojboolean(_gammaCorrection), (C.jint)(_nlevels), tojboolean(_signedGradient)))
+	return int64(C.Java_org_opencv_objdetect_HOGDescriptor_HOGDescriptor_10(clzEnv, clzObj, (C.jdouble)(_winSize_width), (C.jdouble)(_winSize_height),
+		(C.jdouble)(_blockSize_width), (C.jdouble)(_blockSize_height), (C.jdouble)(_blockStride_width), (C.jdouble)(_blockStride_height), (C.jdouble)(_cellSize_width), (C.jdouble)(_cellSize_height), (C.jint)(_nbins), (C.jint)(_derivAperture), (C.jdouble)(_winSigma), (C.jint)(_histogramNormType), (C.jdouble)(_L2HysThreshold), tojboolean(_gammaCorrection), (C.jint)(_nlevels), tojboolean(_signedGradient)))
 }
 
 func HOGDescriptorNative_HOGDescriptor_1(_winSize_width float64, _winSize_height float64, _blockSize_width float64, _blockSize_height float64, _blockStride_width float64, _blockStride_height float64, _cellSize_width float64, _cellSize_height float64, _nbins int) int64 {
-	return int64(C.Java_org_opencv_objdetect_HOGDescriptor_HOGDescriptor_11(clzEnv, clzObj, (C.jdouble)(_winSize_width), (C.jdouble)(_winSize_height), (C.jdouble)(
-		_blockSize_width), (C.jdouble)(_blockSize_height), (C.jdouble)(_blockStride_width), (C.jdouble)(_blockStride_height), (C.jdouble)(_cellSize_width), (C.jdouble)(_cellSize_height), (C.jint)(_nbins)))
+	return int64(C.Java_org_opencv_objdetect_HOGDescriptor_HOGDescriptor_11(clzEnv, clzObj, (C.jdouble)(_winSize_width), (C.jdouble)(_winSize_height),
+		(C.jdouble)(_blockSize_width), (C.jdouble)(_blockSize_height), (C.jdouble)(_blockStride_width), (C.jdouble)(_blockStride_height), (C.jdouble)(_cellSize_width), (C.jdouble)(_cellSize_height), (C.jint)(_nbins)))
 }
 
 func HOGDescriptorNative_HOGDescriptor_2(filename string) int64 {
@@ -93,19 +93,16 @@ func HOGDescriptorNative_checkDetectorSize_0(nativeObj int64) bool {
 }
 
 func HOGDescriptorNative_computeGradient_0(nativeObj int64, img_nativeObj int64, grad_nativeObj int64, angleOfs_nativeObj int64, paddingTL_width float64, paddingTL_height float64, paddingBR_width float64, paddingBR_height float64) {
-	C.Java_org_opencv_objdetect_HOGDescriptor_computeGradient_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(img_nativeObj), (C.jlong)(grad_nativeObj), (C.jlong)(
-		angleOfs_nativeObj), (C.jdouble)(paddingTL_width), (C.jdouble)(paddingTL_height), (C.jdouble)(paddingBR_width), (C.jdouble)(
-		paddingBR_height))
+	C.Java_org_opencv_objdetect_HOGDescriptor_computeGradient_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(img_nativeObj), (C.jlong)(grad_nativeObj),
+		(C.jlong)(angleOfs_nativeObj), (C.jdouble)(paddingTL_width), (C.jdouble)(paddingTL_height), (C.jdouble)(paddingBR_width), (C.jdouble)(paddingBR_height))
 }
 
 func HOGDescriptorNative_computeGradient_1(nativeObj int64, img_nativeObj int64, grad_nativeObj int64, angleOfs_nativeObj int64) {
-	C.Java_org_opencv_objdetect_HOGDescriptor_computeGradient_11(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(img_nativeObj), (C.jlong)(grad_nativeObj), (C.jlong)(
-		angleOfs_nativeObj))
+	C.Java_org_opencv_objdetect_HOGDescriptor_computeGradient_11(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(img_nativeObj), (C.jlong)(grad_nativeObj), (C.jlong)(angleOfs_nativeObj))
 }
 
 func HOGDescriptorNative_compute_0(nativeObj int64, img_nativeObj int64, descriptors_mat_nativeObj int64, winStride_width float64, winStride_height float64, padding_width float64, padding_height float64, locations_mat_nativeObj int64) {
-	C.Java_org_opencv_objdetect_HOGDescriptor_compute_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(img_nativeObj), (C.jlong)(descriptors_mat_nativeObj), (C.jdouble)(winStride_width), (C.jdouble)(winStride_height), (C.jdouble)(padding_width), (C.jdouble)(padding_height), (C.jlong)(
-		locations_mat_nativeObj))
+	C.Java_org_opencv_objdetect_HOGDescriptor_compute_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(img_nativeObj), (C.jlong)(descriptors_mat_nativeObj), (C.jdouble)(winStride_width), (C.jdouble)(winStride_height), (C.jdouble)(padding_width), (C.jdouble)(padding_height), (C.jlong)(locations_mat_nativeObj))
 }
 
 func HOGDescriptorNative_compute_1(nativeObj int64, img_nativeObj int64, descriptors_mat_nativeObj int64) {
@@ -165,8 +162,7 @@ func HOGDescriptorNative_get_cellSize_0(nativeObj int64) []float64 {
 }
 
 func HOGDescriptorNative_get_derivAperture_0(nativeObj int64) int {
-	return int(
-		C.Java_org_opencv_objdetect_HOGDescriptor_get_1derivAperture_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return int(C.Java_org_opencv_objdetect_HOGDescriptor_get_1derivAperture_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func HOGDescriptorNative_get_gammaCorrection_0(nativeObj int64) bool {
@@ -174,18 +170,15 @@ func HOGDescriptorNative_get_gammaCorrection_0(nativeObj int64) bool {
 }
 
 func HOGDescriptorNative_get_histogramNormType_0(nativeObj int64) int {
-	return int(
-		C.Java_org_opencv_objdetect_HOGDescriptor_get_1histogramNormType_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return int(C.Java_org_opencv_objdetect_HOGDescriptor_get_1histogramNormType_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func HOGDescriptorNative_get_nbins_0(nativeObj int64) int {
-	return int(
-		C.Java_org_opencv_objdetect_HOGDescriptor_get_1nbins_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return int(C.Java_org_opencv_objdetect_HOGDescriptor_get_1nbins_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func HOGDescriptorNative_get_nlevels_0(nativeObj int64) int {
-	return int(
-		C.Java_org_opencv_objdetect_HOGDescriptor_get_1nlevels_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return int(C.Java_org_opencv_objdetect_HOGDescriptor_get_1nlevels_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func HOGDescriptorNative_get_signedGradient_0(nativeObj int64) bool {
@@ -250,8 +243,8 @@ func CascadeClassifierNative_delete(nativeObj int64) {
 }
 
 func CascadeClassifierNative_detectMultiScale2_0(nativeObj int64, image_nativeObj int64, objects_mat_nativeObj int64, numDetections_mat_nativeObj int64, scaleFactor float64, minNeighbors int, flags int, minSize_width float64, minSize_height float64, maxSize_width float64, maxSize_height float64) {
-	C.Java_org_opencv_objdetect_CascadeClassifier_detectMultiScale2_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(image_nativeObj), (C.jlong)(objects_mat_nativeObj), (C.jlong)(numDetections_mat_nativeObj), (C.jdouble)(scaleFactor), (C.jint)(minNeighbors), (C.jint)(flags), (C.jdouble)(
-		minSize_width), (C.jdouble)(minSize_height), (C.jdouble)(maxSize_width), (C.jdouble)(maxSize_height))
+	C.Java_org_opencv_objdetect_CascadeClassifier_detectMultiScale2_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(image_nativeObj), (C.jlong)(objects_mat_nativeObj), (C.jlong)(numDetections_mat_nativeObj), (C.jdouble)(scaleFactor), (C.jint)(minNeighbors), (C.jint)(flags),
+		(C.jdouble)(minSize_width), (C.jdouble)(minSize_height), (C.jdouble)(maxSize_width), (C.jdouble)(maxSize_height))
 }
 
 func CascadeClassifierNative_detectMultiScale2_1(nativeObj int64, image_nativeObj int64, objects_mat_nativeObj int64, numDetections_mat_nativeObj int64) {
@@ -279,8 +272,7 @@ func CascadeClassifierNative_empty_0(nativeObj int64) bool {
 }
 
 func CascadeClassifierNative_getFeatureType_0(nativeObj int64) int {
-	return int(
-		C.Java_org_opencv_objdetect_CascadeClassifier_getFeatureType_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return int(C.Java_org_opencv_objdetect_CascadeClassifier_getFeatureType_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func CascadeClassifierNative_getOriginalWindowSize_0(nativeObj int64) []float64 {

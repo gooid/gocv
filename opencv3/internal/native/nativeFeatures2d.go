@@ -255,8 +255,8 @@ extern void Java_org_opencv_features2d_Params_set_1thresholdStep_10(JNIEnv*, jcl
 import "C"
 
 func AKAZENative_create_0(descriptor_type int, descriptor_size int, descriptor_channels int, threshold float32, nOctaves int, nOctaveLayers int, diffusivity int) int64 {
-	return int64(C.Java_org_opencv_features2d_AKAZE_create_10(clzEnv, clzObj, (C.jint)(descriptor_type), (C.jint)(descriptor_size), (C.jint)(descriptor_channels), (C.jfloat)(threshold), (C.jint)(
-		nOctaves), (C.jint)(nOctaveLayers), (C.jint)(diffusivity)))
+	return int64(C.Java_org_opencv_features2d_AKAZE_create_10(clzEnv, clzObj, (C.jint)(descriptor_type), (C.jint)(descriptor_size), (C.jint)(descriptor_channels), (C.jfloat)(threshold),
+		(C.jint)(nOctaves), (C.jint)(nOctaveLayers), (C.jint)(diffusivity)))
 }
 func AKAZENative_create_1() int64 {
 	return int64(C.Java_org_opencv_features2d_AKAZE_create_11(clzEnv, clzObj))
@@ -267,8 +267,7 @@ func AKAZENative_delete(nativeObj int64) {
 }
 
 func AKAZENative_getDefaultName_0(nativeObj int64) string {
-	return togostring(
-		C.Java_org_opencv_features2d_AKAZE_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return togostring(C.Java_org_opencv_features2d_AKAZE_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func AKAZENative_getDescriptorChannels_0(nativeObj int64) int {
@@ -340,8 +339,7 @@ func AgastFeatureDetectorNative_delete(nativeObj int64) {
 }
 
 func AgastFeatureDetectorNative_getDefaultName_0(nativeObj int64) string {
-	return togostring(
-		C.Java_org_opencv_features2d_AgastFeatureDetector_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return togostring(C.Java_org_opencv_features2d_AgastFeatureDetector_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func AgastFeatureDetectorNative_getNonmaxSuppression_0(nativeObj int64) bool {
@@ -489,8 +487,7 @@ func BRISKNative_delete(nativeObj int64) {
 }
 
 func BRISKNative_getDefaultName_0(nativeObj int64) string {
-	return togostring(
-		C.Java_org_opencv_features2d_BRISK_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return togostring(C.Java_org_opencv_features2d_BRISK_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func DescriptorExtractorNative_compute_0(nativeObj int64, image_nativeObj int64, keypoints_mat_nativeObj int64, descriptors_nativeObj int64) {
@@ -647,8 +644,7 @@ func FastFeatureDetectorNative_delete(nativeObj int64) {
 }
 
 func FastFeatureDetectorNative_getDefaultName_0(nativeObj int64) string {
-	return togostring(
-		C.Java_org_opencv_features2d_FastFeatureDetector_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return togostring(C.Java_org_opencv_features2d_FastFeatureDetector_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func FastFeatureDetectorNative_getNonmaxSuppression_0(nativeObj int64) bool {
@@ -728,8 +724,7 @@ func Feature2DNative_empty_0(nativeObj int64) bool {
 }
 
 func Feature2DNative_getDefaultName_0(nativeObj int64) string {
-	return togostring(
-		C.Java_org_opencv_features2d_Feature2D_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return togostring(C.Java_org_opencv_features2d_Feature2D_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func Feature2DNative_read_0(nativeObj int64, fileName string) {
@@ -781,8 +776,8 @@ func FeatureDetectorNative_write_0(nativeObj int64, fileName string) {
 }
 
 func Features2dNative_drawKeypoints_0(image_nativeObj int64, keypoints_mat_nativeObj int64, outImage_nativeObj int64, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64, flags int) {
-	C.Java_org_opencv_features2d_Features2d_drawKeypoints_10(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(keypoints_mat_nativeObj), (C.jlong)(outImage_nativeObj), (C.jdouble)(color_val0), (C.jdouble)(color_val1), (C.jdouble)(
-		color_val2), (C.jdouble)(color_val3), (C.jint)(flags))
+	C.Java_org_opencv_features2d_Features2d_drawKeypoints_10(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(keypoints_mat_nativeObj), (C.jlong)(outImage_nativeObj), (C.jdouble)(color_val0), (C.jdouble)(color_val1),
+		(C.jdouble)(color_val2), (C.jdouble)(color_val3), (C.jint)(flags))
 }
 
 func Features2dNative_drawKeypoints_1(image_nativeObj int64, keypoints_mat_nativeObj int64, outImage_nativeObj int64) {
@@ -850,8 +845,7 @@ func GFTTDetectorNative_getBlockSize_0(nativeObj int64) int {
 }
 
 func GFTTDetectorNative_getDefaultName_0(nativeObj int64) string {
-	return togostring(
-		C.Java_org_opencv_features2d_GFTTDetector_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return togostring(C.Java_org_opencv_features2d_GFTTDetector_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func GFTTDetectorNative_getHarrisDetector_0(nativeObj int64) bool {
@@ -911,8 +905,7 @@ func KAZENative_delete(nativeObj int64) {
 }
 
 func KAZENative_getDefaultName_0(nativeObj int64) string {
-	return togostring(
-		C.Java_org_opencv_features2d_KAZE_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return togostring(C.Java_org_opencv_features2d_KAZE_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func KAZENative_getDiffusivity_0(nativeObj int64) int {
@@ -980,8 +973,7 @@ func MSERNative_detectRegions_0(nativeObj int64, image_nativeObj int64, msers_ma
 }
 
 func MSERNative_getDefaultName_0(nativeObj int64) string {
-	return togostring(
-		C.Java_org_opencv_features2d_MSER_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return togostring(C.Java_org_opencv_features2d_MSER_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func MSERNative_getDelta_0(nativeObj int64) int {
@@ -1029,8 +1021,7 @@ func ORBNative_delete(nativeObj int64) {
 }
 
 func ORBNative_getDefaultName_0(nativeObj int64) string {
-	return togostring(
-		C.Java_org_opencv_features2d_ORB_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
+	return togostring(C.Java_org_opencv_features2d_ORB_getDefaultName_10(clzEnv, clzObj, (C.jlong)(nativeObj)))
 }
 
 func ORBNative_getEdgeThreshold_0(nativeObj int64) int {

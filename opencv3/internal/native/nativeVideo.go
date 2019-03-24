@@ -346,8 +346,8 @@ func BackgroundSubtractorMOG2Native_setVarThreshold_0(nativeObj int64, varThresh
 }
 
 func DenseOpticalFlowNative_calc_0(nativeObj int64, I0_nativeObj int64, I1_nativeObj int64, flow_nativeObj int64) {
-	C.Java_org_opencv_video_DenseOpticalFlow_calc_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(I0_nativeObj), (C.jlong)(I1_nativeObj), (C.jlong)(
-		flow_nativeObj))
+	C.Java_org_opencv_video_DenseOpticalFlow_calc_10(clzEnv, clzObj, (C.jlong)(nativeObj), (C.jlong)(I0_nativeObj), (C.jlong)(I1_nativeObj),
+		(C.jlong)(flow_nativeObj))
 }
 
 func DenseOpticalFlowNative_collectGarbage_0(nativeObj int64) {

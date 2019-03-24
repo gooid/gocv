@@ -399,13 +399,13 @@ func ImgprocNative_Sobel_2(src_nativeObj int64, dst_nativeObj int64, ddepth int,
 }
 
 func ImgprocNative_accumulateProduct_0(src1_nativeObj int64, src2_nativeObj int64, dst_nativeObj int64, mask_nativeObj int64) {
-	C.Java_org_opencv_imgproc_Imgproc_accumulateProduct_10(clzEnv, clzObj, (C.jlong)(src1_nativeObj), (C.jlong)(
-		src2_nativeObj), (C.jlong)(dst_nativeObj), (C.jlong)(mask_nativeObj))
+	C.Java_org_opencv_imgproc_Imgproc_accumulateProduct_10(clzEnv, clzObj, (C.jlong)(src1_nativeObj),
+		(C.jlong)(src2_nativeObj), (C.jlong)(dst_nativeObj), (C.jlong)(mask_nativeObj))
 }
 
 func ImgprocNative_accumulateProduct_1(src1_nativeObj int64, src2_nativeObj int64, dst_nativeObj int64) {
-	C.Java_org_opencv_imgproc_Imgproc_accumulateProduct_11(clzEnv, clzObj, (C.jlong)(src1_nativeObj), (C.jlong)(
-		src2_nativeObj), (C.jlong)(dst_nativeObj))
+	C.Java_org_opencv_imgproc_Imgproc_accumulateProduct_11(clzEnv, clzObj, (C.jlong)(src1_nativeObj),
+		(C.jlong)(src2_nativeObj), (C.jlong)(dst_nativeObj))
 }
 
 func ImgprocNative_accumulateSquare_0(src_nativeObj int64, dst_nativeObj int64, mask_nativeObj int64) {
@@ -417,13 +417,13 @@ func ImgprocNative_accumulateSquare_1(src_nativeObj int64, dst_nativeObj int64) 
 }
 
 func ImgprocNative_accumulateWeighted_0(src_nativeObj int64, dst_nativeObj int64, alpha float64, mask_nativeObj int64) {
-	C.Java_org_opencv_imgproc_Imgproc_accumulateWeighted_10(clzEnv, clzObj, (C.jlong)(src_nativeObj), (C.jlong)(
-		dst_nativeObj), (C.jdouble)(alpha), (C.jlong)(mask_nativeObj))
+	C.Java_org_opencv_imgproc_Imgproc_accumulateWeighted_10(clzEnv, clzObj, (C.jlong)(src_nativeObj),
+		(C.jlong)(dst_nativeObj), (C.jdouble)(alpha), (C.jlong)(mask_nativeObj))
 }
 
 func ImgprocNative_accumulateWeighted_1(src_nativeObj int64, dst_nativeObj int64, alpha float64) {
-	C.Java_org_opencv_imgproc_Imgproc_accumulateWeighted_11(clzEnv, clzObj, (C.jlong)(src_nativeObj), (C.jlong)(
-		dst_nativeObj), (C.jdouble)(alpha))
+	C.Java_org_opencv_imgproc_Imgproc_accumulateWeighted_11(clzEnv, clzObj, (C.jlong)(src_nativeObj),
+		(C.jlong)(dst_nativeObj), (C.jdouble)(alpha))
 }
 
 func ImgprocNative_accumulate_0(src_nativeObj int64, dst_nativeObj int64, mask_nativeObj int64) {
@@ -447,8 +447,8 @@ func ImgprocNative_applyColorMap_1(src_nativeObj int64, dst_nativeObj int64, col
 }
 
 func ImgprocNative_approxPolyDP_0(curve_mat_nativeObj int64, approxCurve_mat_nativeObj int64, epsilon float64, closed bool) {
-	C.Java_org_opencv_imgproc_Imgproc_approxPolyDP_10(clzEnv, clzObj, (C.jlong)(curve_mat_nativeObj), (C.jlong)(
-		approxCurve_mat_nativeObj), (C.jdouble)(epsilon), tojboolean(closed))
+	C.Java_org_opencv_imgproc_Imgproc_approxPolyDP_10(clzEnv, clzObj, (C.jlong)(curve_mat_nativeObj),
+		(C.jlong)(approxCurve_mat_nativeObj), (C.jdouble)(epsilon), tojboolean(closed))
 }
 
 func ImgprocNative_arcLength_0(curve_mat_nativeObj int64, closed bool) float64 {
@@ -456,15 +456,15 @@ func ImgprocNative_arcLength_0(curve_mat_nativeObj int64, closed bool) float64 {
 }
 
 func ImgprocNative_arrowedLine_0(img_nativeObj int64, pt1_x float64, pt1_y float64, pt2_x float64, pt2_y float64, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64, thickness int, line_type int, shift int, tipLength float64) {
-	C.Java_org_opencv_imgproc_Imgproc_arrowedLine_10(clzEnv, clzObj, (C.jlong)(img_nativeObj), (C.jdouble)(pt1_x), (C.jdouble)(pt1_y), (C.jdouble)(pt2_x), (C.jdouble)(
-		pt2_y), (C.jdouble)(color_val0), (C.jdouble)(
-		color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3), (C.jint)(thickness), (C.jint)(line_type), (C.jint)(shift), (C.jdouble)(tipLength))
+	C.Java_org_opencv_imgproc_Imgproc_arrowedLine_10(clzEnv, clzObj, (C.jlong)(img_nativeObj), (C.jdouble)(pt1_x), (C.jdouble)(pt1_y), (C.jdouble)(pt2_x),
+		(C.jdouble)(pt2_y), (C.jdouble)(color_val0),
+		(C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3), (C.jint)(thickness), (C.jint)(line_type), (C.jint)(shift), (C.jdouble)(tipLength))
 }
 
 func ImgprocNative_arrowedLine_1(img_nativeObj int64, pt1_x float64, pt1_y float64, pt2_x float64, pt2_y float64, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64) {
-	C.Java_org_opencv_imgproc_Imgproc_arrowedLine_11(clzEnv, clzObj, (C.jlong)(img_nativeObj), (C.jdouble)(pt1_x), (C.jdouble)(pt1_y), (C.jdouble)(pt2_x), (C.jdouble)(
-		pt2_y), (C.jdouble)(color_val0), (C.jdouble)(
-		color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3))
+	C.Java_org_opencv_imgproc_Imgproc_arrowedLine_11(clzEnv, clzObj, (C.jlong)(img_nativeObj), (C.jdouble)(pt1_x), (C.jdouble)(pt1_y), (C.jdouble)(pt2_x),
+		(C.jdouble)(pt2_y), (C.jdouble)(color_val0),
+		(C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3))
 }
 
 func ImgprocNative_bilateralFilter_0(src_nativeObj int64, dst_nativeObj int64, d int, sigmaColor float64, sigmaSpace float64, borderType int) {
@@ -542,8 +542,8 @@ func ImgprocNative_compareHist_0(H1_nativeObj int64, H2_nativeObj int64, method 
 }
 
 func ImgprocNative_connectedComponentsWithAlgorithm_0(image_nativeObj int64, labels_nativeObj int64, connectivity int, ltype int, ccltype int) int {
-	return int(C.Java_org_opencv_imgproc_Imgproc_connectedComponentsWithAlgorithm_10(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(labels_nativeObj), (C.jint)(
-		connectivity), (C.jint)(ltype), (C.jint)(ccltype)))
+	return int(C.Java_org_opencv_imgproc_Imgproc_connectedComponentsWithAlgorithm_10(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(labels_nativeObj),
+		(C.jint)(connectivity), (C.jint)(ltype), (C.jint)(ccltype)))
 }
 
 func ImgprocNative_connectedComponentsWithStatsWithAlgorithm_0(image_nativeObj int64, labels_nativeObj int64, stats_nativeObj int64, centroids_nativeObj int64, connectivity int, ltype int, ccltype int) int {
@@ -663,8 +663,8 @@ func ImgprocNative_demosaicing_1(_src_nativeObj int64, _dst_nativeObj int64, cod
 }
 
 func ImgprocNative_dilate_0(src_nativeObj int64, dst_nativeObj int64, kernel_nativeObj int64, anchor_x float64, anchor_y float64, iterations int, borderType int, borderValue_val0 float64, borderValue_val1 float64, borderValue_val2 float64, borderValue_val3 float64) {
-	C.Java_org_opencv_imgproc_Imgproc_dilate_10(clzEnv, clzObj, (C.jlong)(src_nativeObj), (C.jlong)(dst_nativeObj), (C.jlong)(kernel_nativeObj), (C.jdouble)(anchor_x), (C.jdouble)(anchor_y), (C.jint)(iterations), (C.jint)(borderType), (C.jdouble)(borderValue_val0), (C.jdouble)(borderValue_val1), (C.jdouble)(borderValue_val2), (C.jdouble)(
-		borderValue_val3))
+	C.Java_org_opencv_imgproc_Imgproc_dilate_10(clzEnv, clzObj, (C.jlong)(src_nativeObj), (C.jlong)(dst_nativeObj), (C.jlong)(kernel_nativeObj), (C.jdouble)(anchor_x), (C.jdouble)(anchor_y), (C.jint)(iterations), (C.jint)(borderType), (C.jdouble)(borderValue_val0), (C.jdouble)(borderValue_val1), (C.jdouble)(borderValue_val2),
+		(C.jdouble)(borderValue_val3))
 }
 
 func ImgprocNative_dilate_1(src_nativeObj int64, dst_nativeObj int64, kernel_nativeObj int64, anchor_x float64, anchor_y float64, iterations int) {
@@ -692,18 +692,18 @@ func ImgprocNative_distanceTransform_1(src_nativeObj int64, dst_nativeObj int64,
 }
 
 func ImgprocNative_drawContours_0(image_nativeObj int64, contours_mat_nativeObj int64, contourIdx int, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64, thickness int, lineType int, hierarchy_nativeObj int64, maxLevel int, offset_x float64, offset_y float64) {
-	C.Java_org_opencv_imgproc_Imgproc_drawContours_10(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(contours_mat_nativeObj), (C.jint)(contourIdx), (C.jdouble)(
-		color_val0), (C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3), (C.jint)(thickness), (C.jint)(lineType), (C.jlong)(hierarchy_nativeObj), (C.jint)(maxLevel), (C.jdouble)(offset_x), (C.jdouble)(offset_y))
+	C.Java_org_opencv_imgproc_Imgproc_drawContours_10(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(contours_mat_nativeObj), (C.jint)(contourIdx),
+		(C.jdouble)(color_val0), (C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3), (C.jint)(thickness), (C.jint)(lineType), (C.jlong)(hierarchy_nativeObj), (C.jint)(maxLevel), (C.jdouble)(offset_x), (C.jdouble)(offset_y))
 }
 
 func ImgprocNative_drawContours_1(image_nativeObj int64, contours_mat_nativeObj int64, contourIdx int, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64, thickness int) {
-	C.Java_org_opencv_imgproc_Imgproc_drawContours_11(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(contours_mat_nativeObj), (C.jint)(contourIdx), (C.jdouble)(
-		color_val0), (C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3), (C.jint)(thickness))
+	C.Java_org_opencv_imgproc_Imgproc_drawContours_11(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(contours_mat_nativeObj), (C.jint)(contourIdx),
+		(C.jdouble)(color_val0), (C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3), (C.jint)(thickness))
 }
 
 func ImgprocNative_drawContours_2(image_nativeObj int64, contours_mat_nativeObj int64, contourIdx int, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64) {
-	C.Java_org_opencv_imgproc_Imgproc_drawContours_12(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(contours_mat_nativeObj), (C.jint)(contourIdx), (C.jdouble)(
-		color_val0), (C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3))
+	C.Java_org_opencv_imgproc_Imgproc_drawContours_12(clzEnv, clzObj, (C.jlong)(image_nativeObj), (C.jlong)(contours_mat_nativeObj), (C.jint)(contourIdx),
+		(C.jdouble)(color_val0), (C.jdouble)(color_val1), (C.jdouble)(color_val2), (C.jdouble)(color_val3))
 }
 
 func ImgprocNative_drawMarker_0(img_nativeObj int64, position_x float64, position_y float64, color_val0 float64, color_val1 float64, color_val2 float64, color_val3 float64, markerType int, markerSize int, thickness int, line_type int) {
@@ -1139,8 +1139,8 @@ func ImgprocNative_resize_1(src_nativeObj int64, dst_nativeObj int64, dsize_widt
 }
 
 func ImgprocNative_rotatedRectangleIntersection_0(rect1_center_x float64, rect1_center_y float64, rect1_size_width float64, rect1_size_height float64, rect1_angle float64, rect2_center_x float64, rect2_center_y float64, rect2_size_width float64, rect2_size_height float64, rect2_angle float64, intersectingRegion_nativeObj int64) int {
-	return int(C.Java_org_opencv_imgproc_Imgproc_rotatedRectangleIntersection_10(clzEnv, clzObj, (C.jdouble)(rect1_center_x), (C.jdouble)(rect1_center_y), (C.jdouble)(
-		rect1_size_width), (C.jdouble)(rect1_size_height), (C.jdouble)(rect1_angle), (C.jdouble)(rect2_center_x), (C.jdouble)(rect2_center_y), (C.jdouble)(rect2_size_width), (C.jdouble)(rect2_size_height), (C.jdouble)(rect2_angle), (C.jlong)(intersectingRegion_nativeObj)))
+	return int(C.Java_org_opencv_imgproc_Imgproc_rotatedRectangleIntersection_10(clzEnv, clzObj, (C.jdouble)(rect1_center_x), (C.jdouble)(rect1_center_y),
+		(C.jdouble)(rect1_size_width), (C.jdouble)(rect1_size_height), (C.jdouble)(rect1_angle), (C.jdouble)(rect2_center_x), (C.jdouble)(rect2_center_y), (C.jdouble)(rect2_size_width), (C.jdouble)(rect2_size_height), (C.jdouble)(rect2_angle), (C.jlong)(intersectingRegion_nativeObj)))
 }
 
 func ImgprocNative_sepFilter2D_0(src_nativeObj int64, dst_nativeObj int64, ddepth int, kernelX_nativeObj int64, kernelY_nativeObj int64, anchor_x float64, anchor_y float64, delta float64, borderType int) {

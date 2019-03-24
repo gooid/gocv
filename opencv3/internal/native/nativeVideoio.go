@@ -140,8 +140,8 @@ func VideoWriterNative_delete(nativeObj int64) {
 }
 
 func VideoWriterNative_fourcc_0(c1 rune, c2 rune, c3 rune, c4 rune) int {
-	return int(C.Java_org_opencv_videoio_VideoWriter_fourcc_10(clzEnv, clzObj, (C.jshort)(c1), (C.jshort)(
-		c2), (C.jshort)(c3), (C.jshort)(c4)))
+	return int(C.Java_org_opencv_videoio_VideoWriter_fourcc_10(clzEnv, clzObj, (C.jshort)(c1),
+		(C.jshort)(c2), (C.jshort)(c3), (C.jshort)(c4)))
 }
 
 func VideoWriterNative_get_0(nativeObj int64, propId int) float64 {
